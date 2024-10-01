@@ -1,0 +1,37 @@
+import NavbarComponent from '../../../components/navbar/client/navbar_client';
+import { useSelector } from 'react-redux';
+import pic from '../../../assets/pic1.jpg'
+import loading from '../../../assets/loading.svg'
+
+function Home() {
+
+  const user = useSelector((state: any) => state.user)
+
+  return (
+    <div style={{
+      backgroundImage: `url(${pic})`,
+      backgroundSize: 'cover'
+    }} className="h-screen w-full bg-white relative flex items-center justify-center">
+      {/* Radial gradient for the container to give a faded look */}
+      <div className='w-screen h-screen flex justify-center items-center'>
+        <NavbarComponent />
+
+        <div className='flex flex-col gap-2 items-center'>
+          {user &&
+            <>
+              <p className='text-4xl text-white font-extrabold p-2'>{user?.name}</p>
+              <p className='bg-clip-text text-white text-xl'>{user?.email}</p>
+            </>
+          }
+          {!user &&
+            <>
+              <img className='w-10 animate-spin' src={loading} alt="" />
+            </>
+          }
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Home

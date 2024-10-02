@@ -1,8 +1,8 @@
 import pic from '../../../assets/pic4.jpg'
-import { useContext,useEffect, useLayoutEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import SigninForm from '../../../components/login/signinForm'
 import SignupForm from '../../../components/login/signupForm'
-import { UserContext } from '../../../context/userContext'
+// import { UserContext } from '../../../context/userContext'
 import Cookies from 'js-cookie'
 
 function Login() {
@@ -104,7 +104,7 @@ function Login() {
 
     // signin user
     const [isLogin, setLogin] = useState<boolean>(false)
-    const userContext = useContext(UserContext)
+    // const userContext = useContext(UserContext)
 
     const handleSignIn = (event: React.FormEvent) => {
         event.preventDefault()

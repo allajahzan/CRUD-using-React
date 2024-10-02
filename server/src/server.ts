@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGO_URL as string)
 // app
 const app = express()
 app.use(cors());
-app.use(express.static('src/public'))
+app.use(express.static('public'))
 app.use(cookiesParser())
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended:true}))

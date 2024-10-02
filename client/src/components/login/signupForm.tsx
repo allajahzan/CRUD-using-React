@@ -34,10 +34,6 @@ function SignupForm({nameInput,setName,emailInput,setEmail,passwordInput,setpass
                         <img className='w-7 h-7' src={google} alt="" />
                         <button type='button' className=' text-black text-base font-base font-medium'>Sign In with Google</button>
                     </div>
-                    <div className='flex gap-2 justify-center items-center relative p-2 rounded-md bg-white border-2 border-black border-opacity-15 w-full'>
-                        <img className='w-7 h-7' src={google} alt="" />
-                        <button type='button' className=' text-black text-base font-base font-medium'>Sign In with Google</button>
-                    </div>
                 </form>
                 <p onClick={handleMove} className='text-black text-center text-base'>Already have an account?<span className='pl-2 mt-2 cursor-pointer font-medium text-base'>SignIn</span></p>
             </div>

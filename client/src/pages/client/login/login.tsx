@@ -80,7 +80,7 @@ function Login() {
             password: passwordInput
         }
 
-        fetch('http://localhost:3000/user', {
+        fetch('https://mycrud-react-server.vercel.app/user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -119,7 +119,7 @@ function Login() {
         }
 
         setLogin(true)
-        fetch('http://localhost:3000/userLogin', {
+        fetch('https://mycrud-react-server.vercel.app/userLogin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

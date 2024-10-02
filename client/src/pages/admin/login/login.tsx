@@ -35,7 +35,7 @@ function Login() {
         }
 
         setLogin(true)
-        fetch('http://localhost:3000/admin/login', {
+        fetch('https://mycrud-react-server.vercel.app/admin/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

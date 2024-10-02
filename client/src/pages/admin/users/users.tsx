@@ -30,7 +30,7 @@ function Users() {
                     dispathFun(SetAdminToken(newAccessToken))
                     Cookies.set('adminAccessToken', newAccessToken)
 
-                    fetch(`http://localhost:3000/admin/deleteUser?userId=${userId}`,
+                    fetch(`https://mycrud-react-server.vercel.app/admin/deleteUser?userId=${userId}`,
                         {
                             method: 'DELETE',
                             credentials: 'include'
@@ -60,7 +60,7 @@ function Users() {
                         dispathFun(SetAdminToken(newAccessToken))
                         Cookies.set('adminAccessToken', newAccessToken)
 
-                        fetch('http://localhost:3000/admin/getUsers', { method: 'GET', credentials: 'include' })
+                        fetch('https://mycrud-react-server.vercel.app/admin/getUsers', { method: 'GET', credentials: 'include' })
                             .then(async (res) => {
                                 const data = await res.json()
                                 if (res.status === 401) {

@@ -22,11 +22,9 @@ function Profile() {
 
     useLayoutEffect(() => {
         if (user) {
-            console.log(user.image);
-            
             setName(user.name)
             setEmail(user.email)
-            if (user.image !== 'null') {
+            if (user.image!=='null') {
                 setImgae(user.image)
             }
         }
@@ -54,7 +52,7 @@ function Profile() {
         const formData = new FormData()
         formData.append('name', nameInput)
         formData.append('email', emailInput)
-        formData.append('image', image as string)
+        formData.append('image', image? image : 'null')
 
         const updateUser = () => {
             UserAuth(accessToken)

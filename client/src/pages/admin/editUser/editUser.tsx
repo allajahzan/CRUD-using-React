@@ -63,7 +63,9 @@ function EditUser() {
 
                         fetch('https://mycrud-react-server.vercel.app/admin/editUser', {
                             method: 'PATCH',
-                            credentials: 'include',
+                            headers: {
+                                'Authorization': `Bearer ${newAccessToken}`
+                            },
                             body: formData
                         })
                             .then(async (res) => {

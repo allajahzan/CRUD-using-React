@@ -57,7 +57,9 @@ function AddUser() {
 
                         fetch('https://mycrud-react-server.vercel.app/admin/addUser', {
                             method: 'POST',
-                            credentials: 'include',
+                            headers: {
+                                'Authorization': `Bearer ${newAccessToken}`
+                            },
                             body: formData
                         })
                             .then(async (res) => {

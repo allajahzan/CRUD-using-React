@@ -33,7 +33,9 @@ function Users() {
                     fetch(`https://mycrud-react-server.vercel.app/admin/deleteUser?userId=${userId}`,
                         {
                             method: 'DELETE',
-                            credentials: 'include'
+                            headers: {
+                                'Authorization': `Bearer ${newAccessToken}`
+                            }
                         })
                         .then(async (res) => {
                             return await res.json()
@@ -60,9 +62,9 @@ function Users() {
                         dispathFun(SetAdminToken(newAccessToken))
                         Cookies.set('adminAccessToken', newAccessToken)
 
-                        fetch('https://mycrud-react-server.vercel.app/admin/getUsers', { 
-                            method: 'GET', 
-                            headers:{
+                        fetch('https://mycrud-react-server.vercel.app/admin/getUsers', {
+                            method: 'GET',
+                            headers: {
                                 'Authorization': `Bearer ${newAccessToken}`
                             }
                         })

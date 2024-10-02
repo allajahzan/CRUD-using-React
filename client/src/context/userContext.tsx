@@ -27,17 +27,22 @@ const UserContextProvider = ({ children }: { children: ReactNode }) => {
             if (newAccesstoken) {
                 alert(newAccesstoken)
                 disaptchFun(SetToken(newAccesstoken))
-                Cookies.set('accessToken',newAccesstoken, {path:'/', sameSite:'None', secure:true})
-                fetch('http://localhost:3000/getUser', { method: 'GET', credentials: 'include' })
+                Cookies.set('accessToken', newAccesstoken, { path: '/', sameSite: 'None', secure: true })
+                fetch('http://localhost:3000/getUser', {
+                    method: 'GET',
+                    headers: {
+                        'Cookie': `accessToken=${Cookies.get(accessToken)}`
+                    }
+                })
                     .then(async (res) => {
                         if (res.status === 401) {
                             // checkAuth()
                             alert("ayyyy")
-                        }else if(res.status === 404){
+                        } else if (res.status === 404) {
                             // logout()
                         }
                         else {
-                            const data = await res.json()  
+                            const data = await res.json()
                             disaptchFun(UpdateUser(data.user))
                         }
                     })

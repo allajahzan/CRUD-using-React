@@ -57,7 +57,6 @@ export const verifyToken = (accessToken: string) => fetch('http://localhost:3000
 
 export async function UserAuth(accessToken: string) {
     // main logic
-    alert(accessToken)
     if (isTokenExpired(accessToken)) {
         const newAccessToken = await refreshAccessToken()
         if (newAccessToken) {

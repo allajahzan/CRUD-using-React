@@ -9,7 +9,6 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "proxy": "http://localhost:3000",
   "dependencies": {
     "@tabler/icons-react": "^3.17.0",
     "clsx": "^2.1.1",

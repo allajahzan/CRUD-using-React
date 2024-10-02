@@ -13,6 +13,8 @@ export const server = async (req: Request, res: Response) => {
 export const verifyToken = async (req: Request, res: Response): Promise<any> => {
     try {
         const token = req.headers['authorization']?.split(' ')[1] as string
+        console.log(token);
+        
 
         if (!token) return res.sendStatus(401)
 
@@ -30,6 +32,8 @@ export const verifyToken = async (req: Request, res: Response): Promise<any> => 
 export const refreshToken = async (req: Request, res: Response): Promise<any> => {
     try {
         const { refreshToken } = req.cookies
+        console.log(refreshToken);
+        
         if (!refreshToken) return res.sendStatus(401)
 
         const isRefreshTokenVerfied = Jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET as string)

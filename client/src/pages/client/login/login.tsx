@@ -133,7 +133,7 @@ function Login() {
                     const refreshToken: string = data.refreshToken
                     Cookies.set('refreshToken', refreshToken)
                     Cookies.set('accessToken', accessToken)
-                    userContext?.setAuth(true)
+                    // userContext?.setAuth(true)
                 } else {
                     setLogin(false)
                     alert(data.msg)

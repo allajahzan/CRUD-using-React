@@ -1,20 +1,17 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo hello",
-    "dev": "nodemon src/server.ts",
     "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "nodemon src/server.ts",
     "vercel-build" : "echo hello"
   },
   "author": "allaj",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@types/bcrypt": "^5.0.2",
-    "@types/cors": "^2.8.17",
-    "@types/mongoose": "^5.11.97",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -28,6 +25,9 @@
     "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/mongoose": "^5.11.97",
+    "@types/bcrypt": "^5.0.2",
     "@types/cookie-parser": "^1.4.7",
     "@types/express": "^5.0.0",
     "@types/express-fileupload": "^1.5.1",

@@ -2,11 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/api",
-      "methods": ["GET", "POST", "DELETE", "PUT", "PATCH", "OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
+      "destination": "/api"
     }
   ]
 }

@@ -46,7 +46,7 @@ export const verifyToken = async (req: Request, res: Response): Promise<any> => 
 // refresh access token
 export const refreshToken = async (req: Request, res: Response): Promise<any> => {
     try {
-        const { adminRefreshToken } = req.cookies
+        const adminRefreshToken = req.headers['authorization']?.split(' ')[1] as string
         if (!adminRefreshToken) return res.sendStatus(401)
 
         const isRefreshTokenVerfied = Jwt.verify(adminRefreshToken, process.env.JWT_REFRESH_SECRET_ADMIN as string)
@@ -65,7 +65,7 @@ export const refreshToken = async (req: Request, res: Response): Promise<any> =>
 // get admin data 
 export const getAdmin = async (req: Request, res: Response): Promise<any> => {
     try {
-        const { adminAccessToken } = req.cookies
+        const adminAccessToken = req.headers['authorization']?.split(' ')[1] as string
         if (!adminAccessToken) return res.sendStatus(401)
 
         const isVerified = Jwt.verify(adminAccessToken, process.env.JWT_ACEESS_SECRET_ADMIN as string)
@@ -84,7 +84,7 @@ export const getAdmin = async (req: Request, res: Response): Promise<any> => {
 // get all users data
 export const getUsers = async (req: Request, res: Response): Promise<any> => {
     try {
-        const { adminAccessToken } = req.cookies
+        const adminAccessToken = req.headers['authorization']?.split(' ')[1] as string
         if (!adminAccessToken) return res.sendStatus(401)
 
         const isVerified = Jwt.verify(adminAccessToken, process.env.JWT_ACEESS_SECRET_ADMIN as string)
@@ -102,7 +102,7 @@ export const getUsers = async (req: Request, res: Response): Promise<any> => {
 export const deleteUser = async (req: Request, res: Response): Promise<any> => {
     try {
 
-        const { adminAccessToken } = req.cookies
+        const adminAccessToken = req.headers['authorization']?.split(' ')[1] as string
         if (!adminAccessToken) return res.sendStatus(401)
 
         const isVerified = Jwt.verify(adminAccessToken, process.env.JWT_ACEESS_SECRET_ADMIN as string)
@@ -122,7 +122,7 @@ export const deleteUser = async (req: Request, res: Response): Promise<any> => {
 export const addUser = async (req: Request, res: Response): Promise<any> => {
     try {
 
-        const { adminAccessToken } = req.cookies
+        const adminAccessToken = req.headers['authorization']?.split(' ')[1] as string
         if (!adminAccessToken) return res.sendStatus(401)
 
         const isVerified = Jwt.verify(adminAccessToken, process.env.JWT_ACEESS_SECRET_ADMIN as string)
@@ -150,7 +150,7 @@ export const addUser = async (req: Request, res: Response): Promise<any> => {
 
 export const editUser = async (req: Request, res: Response): Promise<any> => {
     try {
-        const { adminAccessToken } = req.cookies
+        const adminAccessToken = req.headers['authorization']?.split(' ')[1] as string
         if (!adminAccessToken) return res.sendStatus(401)
 
         const isVerified = Jwt.verify(adminAccessToken, process.env.JWT_ACEESS_SECRET_ADMIN as string)

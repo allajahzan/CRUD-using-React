@@ -1,4 +1,5 @@
 import { jwtDecode } from "jwt-decode"
+import Cookies from "js-cookie"
 
 // check weather token expired or not
 const isTokenExpired = (token: string) => {
@@ -12,7 +13,9 @@ async function refreshAccessToken() {
     try {
         const resp = await fetch('http://localhost:3000/admin/refreshToken', {
             method: 'POST',
-            credentials: 'include'
+            headers:{
+                'Authorization': `Bearer ${Cookies.get('adminRefreshToken')}`
+            } 
         });
         if (resp.status === 401) {
             return null

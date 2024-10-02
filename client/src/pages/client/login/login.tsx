@@ -126,13 +126,14 @@ function Login() {
                 return await res.json()
             })
             .then((data) => {
+                console.log(data)
                 const accessToken: string = data.accessToken
                 if (accessToken) {
                     setEmailSignIn('')
                     setpasswordSignIn('')
-                    const refreshToken: string = data.refreshToken
-                    Cookies.set('refreshToken', refreshToken)
-                    Cookies.set('accessToken', accessToken)
+                    // const refreshToken: string = data.refreshToken
+                    // Cookies.set('refreshToken', refreshToken)
+                    // Cookies.set('accessToken', accessToken)
                     // userContext?.setAuth(true)
                 } else {
                     setLogin(false)

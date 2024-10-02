@@ -5,6 +5,7 @@ import Cookies from 'js-cookie'
 import loading from '../../../assets/loading.svg'
 import pic from '../../../assets/pic4.jpg'
 import { useDispatch } from 'react-redux'
+import { SetAdminToken } from '../../../redux/store'
 
 function Login() {
 
@@ -26,7 +27,7 @@ function Login() {
         };
     }, []);
 
-    // const disapatchFun = useDispatch()
+    const disapatchFun = useDispatch()
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault()
@@ -53,7 +54,7 @@ function Login() {
                     setpassword('')
                     Cookies.set('adminAccessToken', data.accessToken)
                     Cookies.set('adminRefreshToken', data.refreshToken)
-                    
+                    disapatchFun(SetAdminToken(data.accessToken))
                     adminContext?.setAuth(true)
                 } else {
                     setLogin(false)

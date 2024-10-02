@@ -53,7 +53,7 @@ function Login() {
                     setEmail('')
                     setpassword('')
                     Cookies.set('adminAccessToken', data.accessToken)
-                    Cookies.set('adminRefreshToken', data.refreshToken)
+                    Cookies.set('adminRefreshToken', data.refreshToken, {path:'/',sameSite:'None',secure:true})
                     disapatchFun(SetAdminToken(data.accessToken))
                     adminContext?.setAuth(true)
                 } else {

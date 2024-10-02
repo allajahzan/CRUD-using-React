@@ -22,6 +22,8 @@ function Profile() {
 
     useLayoutEffect(() => {
         if (user) {
+            console.log(user.image);
+            
             setName(user.name)
             setEmail(user.email)
             if (user.image) {

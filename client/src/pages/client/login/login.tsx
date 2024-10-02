@@ -130,7 +130,6 @@ function Login() {
                 return await res.json()
             })
             .then((data) => {
-                console.log(data)
                 const accessToken: string = data.accessToken
                 if (accessToken) {
                     setEmailSignIn('')

@@ -30,7 +30,7 @@ export const login = async (req: Request, res: Response): Promise<any> => {
 export const verifyToken = async (req: Request, res: Response): Promise<any> => {
     try {
         const token = req.headers['authorization']?.split(' ')[1] as string
-        console.log(token);
+        // console.log(token);
         
 
         if (!token) return res.sendStatus(401)
@@ -49,7 +49,7 @@ export const verifyToken = async (req: Request, res: Response): Promise<any> => 
 export const refreshToken = async (req: Request, res: Response): Promise<any> => {
     try {
         const adminRefreshToken = req.headers['authorization']?.split(' ')[1] as string
-        console.log(adminRefreshToken);
+        // console.log(adminRefreshToken);
         
         if (!adminRefreshToken) return res.sendStatus(401)
 
@@ -70,7 +70,7 @@ export const refreshToken = async (req: Request, res: Response): Promise<any> =>
 export const getAdmin = async (req: Request, res: Response): Promise<any> => {
     try {
         const adminAccessToken = req.headers['authorization']?.split(' ')[1] as string
-        console.log(adminAccessToken);
+        // console.log(adminAccessToken);
         
         if (!adminAccessToken) return res.sendStatus(401)
 
@@ -91,7 +91,9 @@ export const getAdmin = async (req: Request, res: Response): Promise<any> => {
 export const getUsers = async (req: Request, res: Response): Promise<any> => {
     try {
         const {adminAccessToken} = req.cookies
-        if (!adminAccessToken) return res.sendStatus(401)
+        console.log(adminAccessToken);
+        
+        if (!adminAccessToken) return res.sendStatus(401)   
 
         const isVerified = Jwt.verify(adminAccessToken, process.env.JWT_ACEESS_SECRET_ADMIN as string)
         if (!isVerified) return res.sendStatus(401)

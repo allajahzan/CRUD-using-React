@@ -29,7 +29,7 @@ const AdminContexetProvider = ({ children }: { children: ReactNode }) => {
                         disaptchFun(SetAdminToken(newAccessToken))
                         Cookies.set('adminAccessToken', newAccessToken)
 
-                        fetch('https://mycrud-react-server.vercel.app/admin/getAdmin', { method: 'GET', credentials: 'include' })
+                        fetch('/admin/getAdmin', { method: 'GET', credentials: 'include' })
                             .then(async (res) => {
                                 if (res.status === 401) {
                                     checkAdminAuth()

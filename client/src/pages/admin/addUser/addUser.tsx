@@ -55,7 +55,7 @@ function AddUser() {
                         disaptchFun(SetAdminToken(newAccessToken))
                         Cookies.set('adminAccessToken', newAccessToken)
 
-                        fetch('https://mycrud-react-server.vercel.app/admin/addUser', {
+                        fetch('/admin/addUser', {
                             method: 'POST',
                             credentials: 'include',
                             body: formData

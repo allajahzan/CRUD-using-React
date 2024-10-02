@@ -10,7 +10,7 @@ const isTokenExpired = (token: string) => {
 // refresh access token
 async function refreshAccessToken() {
     try {
-        const resp = await fetch('https://mycrud-react-server.vercel.app/admin/refreshToken', {
+        const resp = await fetch('/admin/refreshToken', {
             method: 'POST',
             credentials: 'include'
         });
@@ -28,7 +28,7 @@ async function refreshAccessToken() {
 }
 
 // verify access token
-export const verifyToken = (accessToken: string) => fetch('https://mycrud-react-server.vercel.app/admin/verifyToken', {
+export const verifyToken = (accessToken: string) => fetch('/admin/verifyToken', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',

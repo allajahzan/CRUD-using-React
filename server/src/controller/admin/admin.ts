@@ -47,10 +47,8 @@ export const verifyToken = async (req: Request, res: Response): Promise<any> => 
 export const refreshToken = async (req: Request, res: Response): Promise<any> => {
     try {
         const {adminRefreshToken} = req.cookies
-
         console.log(adminRefreshToken);
-        
-        
+    
         if (!adminRefreshToken) return res.sendStatus(401)
 
         const isRefreshTokenVerfied = Jwt.verify(adminRefreshToken, process.env.JWT_REFRESH_SECRET_ADMIN as string)

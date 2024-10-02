@@ -29,9 +29,9 @@ export const verifyToken = async (req: Request, res: Response): Promise<any> => 
 // refresh access token
 export const refreshToken = async (req: Request, res: Response): Promise<any> => {
     try {
-        const { refreshToken } = req.cookies
+        const refreshToken = req.headers['authorization']?.split(' ')[1] as string
         console.log(refreshToken);
-        
+
         if (!refreshToken) return res.sendStatus(401)
 
         const isRefreshTokenVerfied = Jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET as string)
@@ -97,7 +97,7 @@ export const signInUser = async (req: Request, res: Response): Promise<any> => {
 // get user
 export const getUser = async (req: Request, res: Response): Promise<any> => {
     try {
-        const { accessToken } = req.cookies
+        const accessToken = req.headers['authorization']?.split(' ')[1] as string
         console.log(accessToken);
         
         if (!accessToken) return res.sendStatus(401)
@@ -121,7 +121,9 @@ export const getUser = async (req: Request, res: Response): Promise<any> => {
 export const editUser = async (req: Request, res: Response): Promise<any> => {
     try {
         const { name, email, image } = req.body;
-        const { accessToken } = req.cookies;
+
+        const accessToken = req.headers['authorization']?.split(' ')[1] as string
+        console.log(accessToken);
 
         if (!accessToken) return res.sendStatus(401); 
 

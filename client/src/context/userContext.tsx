@@ -36,10 +36,10 @@ const UserContextProvider = ({ children }: { children: ReactNode }) => {
                 })
                     .then(async (res) => {
                         if (res.status === 401) {
-                            // checkAuth()
+                            checkAuth()
                             alert("ayyyy")
                         } else if (res.status === 404) {
-                            // logout()
+                            logout()
                         }
                         else {
                             const data = await res.json()

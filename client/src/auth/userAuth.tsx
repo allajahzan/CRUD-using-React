@@ -35,7 +35,7 @@ async function refreshAccessToken() {
 }
 
 // verify access token
-export const verifyToken = (accessToken: string) => fetch('http://localhost:3000/verifyToken', {
+export const verifyToken = (accessToken: string) => fetch('/verifyToken', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',

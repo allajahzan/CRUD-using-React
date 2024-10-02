@@ -26,7 +26,7 @@ function Profile() {
             
             setName(user.name)
             setEmail(user.email)
-            if (user.image) {
+            if (user.image !== null) {
                 setImgae(user.image)
             }
         }

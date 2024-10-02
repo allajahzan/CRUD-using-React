@@ -22,7 +22,10 @@ mongoose.connect(process.env.MONGO_URL as string)
 
 // app
 const app = express()
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000', 
+    credentials: true,              
+}));
 app.use(express.static('public'))
 app.use(cookiesParser())
 app.use(morgan('dev'))

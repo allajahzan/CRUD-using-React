@@ -27,7 +27,7 @@ const UserContextProvider = ({ children }: { children: ReactNode }) => {
             if (newAccesstoken) {
                 disaptchFun(SetToken(newAccesstoken))
                 Cookies.set('accessToken', newAccesstoken, { path: '/', sameSite: 'None', secure: true })
-                fetch('/getUser', {
+                fetch('http://localhost:3000/getUser', {
                     method: 'GET',
                     headers: {
                        'Authorization': `Bearer ${newAccesstoken}`

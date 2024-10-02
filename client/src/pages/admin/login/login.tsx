@@ -35,7 +35,7 @@ function Login() {
         }
 
         setLogin(true)
-        fetch('/admin/login', {
+        fetch('http://localhost:3000/admin/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -11,7 +11,7 @@ const isTokenExpired = (token: string) => {
 // refresh access token
 async function refreshAccessToken() {
     try {
-        const resp = await fetch('/refreshToken', {
+        const resp = await fetch('http://localhost:3000/refreshToken', {
             method: 'POST',
             headers:{
                 'Authorization': `Bearer ${Cookies.get('refreshToken')}`
@@ -31,7 +31,7 @@ async function refreshAccessToken() {
 }
 
 // verify access token
-export const verifyToken = (accessToken: string) => fetch('/verifyToken', {
+export const verifyToken = (accessToken: string) => fetch('http://localhost:3000/verifyToken', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',

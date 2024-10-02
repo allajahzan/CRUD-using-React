@@ -61,7 +61,7 @@ function EditUser() {
                         disaptchFun(SetAdminToken(newAccessToken))
                         Cookies.set('adminAccessToken', newAccessToken)
 
-                        fetch('/admin/editUser', {
+                        fetch('http://localhost:3000/admin/editUser', {
                             method: 'PATCH',
                             credentials: 'include',
                             body: formData

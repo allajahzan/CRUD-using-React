@@ -62,7 +62,7 @@ function Profile() {
                         dispathFun(SetToken(newAccesstoken))
                         Cookies.set('accessToken', newAccesstoken)
 
-                        fetch('/editUser', {
+                        fetch('http://localhost:3000/editUser', {
                             method: 'PATCH',
                             headers:{
                                  'Authorization': `Bearer ${newAccesstoken}`

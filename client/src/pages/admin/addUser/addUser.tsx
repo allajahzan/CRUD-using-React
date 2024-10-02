@@ -55,7 +55,7 @@ function AddUser() {
                         disaptchFun(SetAdminToken(newAccessToken))
                         Cookies.set('adminAccessToken', newAccessToken)
 
-                        fetch('/admin/addUser', {
+                        fetch('http://localhost:3000/admin/addUser', {
                             method: 'POST',
                             credentials: 'include',
                             body: formData

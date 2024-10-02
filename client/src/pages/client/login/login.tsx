@@ -80,7 +80,7 @@ function Login() {
             password: passwordInput
         }
 
-        fetch('/user', {
+        fetch('http://localhost:3000/user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -119,7 +119,7 @@ function Login() {
         }
 
         setLogin(true)
-        fetch('/userLogin', {
+        fetch('http://localhost:3000/userLogin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

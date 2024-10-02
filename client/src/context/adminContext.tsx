@@ -29,7 +29,7 @@ const AdminContexetProvider = ({ children }: { children: ReactNode }) => {
                         disaptchFun(SetAdminToken(newAccessToken))
                         Cookies.set('adminAccessToken', newAccessToken)
 
-                        fetch('/admin/getAdmin', { method: 'GET', credentials: 'include' })
+                        fetch('http://localhost:3000/admin/getAdmin', { method: 'GET', credentials: 'include' })
                             .then(async (res) => {
                                 if (res.status === 401) {
                                     checkAdminAuth()

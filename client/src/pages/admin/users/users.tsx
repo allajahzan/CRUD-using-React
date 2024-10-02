@@ -30,7 +30,7 @@ function Users() {
                     dispathFun(SetAdminToken(newAccessToken))
                     Cookies.set('adminAccessToken', newAccessToken)
 
-                    fetch(`/admin/deleteUser?userId=${userId}`,
+                    fetch(`http://localhost:3000/admin/deleteUser?userId=${userId}`,
                         {
                             method: 'DELETE',
                             credentials: 'include'
@@ -60,7 +60,7 @@ function Users() {
                         dispathFun(SetAdminToken(newAccessToken))
                         Cookies.set('adminAccessToken', newAccessToken)
 
-                        fetch('/admin/getUsers', { method: 'GET', credentials: 'include' })
+                        fetch('http://localhost:3000/admin/getUsers', { method: 'GET', credentials: 'include' })
                             .then(async (res) => {
                                 const data = await res.json()
                                 if (res.status === 401) {

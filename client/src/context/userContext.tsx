@@ -27,8 +27,8 @@ const UserContextProvider = ({ children }: { children: ReactNode }) => {
             if (newAccesstoken) {
                 alert(newAccesstoken)
                 disaptchFun(SetToken(newAccesstoken))
-                Cookies.set('accessToken',newAccesstoken, {sameSite:'none'})
-                fetch('http://localhost:3000/getUser', { method: 'GET', credentials: 'include' })
+                Cookies.set('accessToken',newAccesstoken)
+                fetch('http://localhost:3000/getUser', { method: 'POST', credentials: 'include' })
                     .then(async (res) => {
                         if (res.status === 401) {
                             // checkAuth()

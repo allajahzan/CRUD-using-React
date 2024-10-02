@@ -41,7 +41,7 @@ app.use('*',userRoute)
 
 // listening to port
 app.listen(process.env.PORT, ()=>{
-    console.log("server is running on port 3000 http://localhost:3000")
+    console.log("server is running on port 3000")
 })
 
 export default app

@@ -12,7 +12,7 @@ const isTokenExpired = (token: string) => {
 async function refreshAccessToken() {
     if (Cookies.get('refreshToken')) {
         try {
-            const resp = await fetch('http://localhost:3000/refreshToken', {
+            const resp = await fetch('https://mycrud-react-server.vercel.app/refreshToken', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${Cookies.get('refreshToken')}`
@@ -35,7 +35,7 @@ async function refreshAccessToken() {
 }
 
 // verify access token
-export const verifyToken = (accessToken: string) => fetch('http://localhost:3000/verifyToken', {
+export const verifyToken = (accessToken: string) => fetch('https://mycrud-react-server.vercel.app/verifyToken', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',

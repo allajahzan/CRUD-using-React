@@ -62,7 +62,7 @@ function Profile() {
                         dispathFun(SetToken(newAccesstoken))
                         Cookies.set('accessToken', newAccesstoken)
 
-                        fetch('http://localhost:3000/editUser', {
+                        fetch('https://mycrud-react-server.vercel.app/editUser', {
                             method: 'PATCH',
                             headers:{
                                  'Authorization': `Bearer ${newAccesstoken}`

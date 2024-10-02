@@ -61,7 +61,7 @@ function EditUser() {
                         disaptchFun(SetAdminToken(newAccessToken))
                         Cookies.set('adminAccessToken', newAccessToken)
 
-                        fetch('http://localhost:3000/admin/editUser', {
+                        fetch('https://mycrud-react-server.vercel.app/admin/editUser', {
                             method: 'PATCH',
                             credentials: 'include',
                             body: formData

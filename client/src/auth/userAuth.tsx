@@ -14,7 +14,9 @@ async function refreshAccessToken() {
         try {
             const resp = await fetch('https://mycrud-react-server.vercel.app/refreshToken', {
                 method: 'POST',
-                credentials:'include'
+                headers: {
+                    'Authorization': `Bearer ${Cookies.get('refreshToken')}`
+                }
             });
             if (resp.status === 401) {
                 return null

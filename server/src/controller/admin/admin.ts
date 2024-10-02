@@ -16,7 +16,7 @@ export const login = async (req: Request, res: Response): Promise<any> => {
         if (!isPasswordVerified) return res.status(401).json({ msg: 'Incorrect password' })
 
         const payload = { admin_id: user._id }
-        const accessToken = Jwt.sign(payload, process.env.JWT_ACEESS_SECRET_ADMIN as string, { expiresIn: '1m' })
+        const accessToken = Jwt.sign(payload, process.env.JWT_ACEESS_SECRET_ADMIN as string, { expiresIn: '5m' })
         const refreshToken = Jwt.sign(payload, process.env.JWT_REFRESH_SECRET_ADMIN as string, { expiresIn: '7d' })
 
         res.status(200).json({ accessToken, refreshToken })
@@ -46,16 +46,15 @@ export const verifyToken = async (req: Request, res: Response): Promise<any> => 
 // refresh access token
 export const refreshToken = async (req: Request, res: Response): Promise<any> => {
     try {
-        const {adminRefreshToken} = req.cookies
-        console.log(adminRefreshToken);
-    
+        const adminRefreshToken = req.headers['authorization']?.split(' ')[1] as string
+        
         if (!adminRefreshToken) return res.sendStatus(401)
 
         const isRefreshTokenVerfied = Jwt.verify(adminRefreshToken, process.env.JWT_REFRESH_SECRET_ADMIN as string)
         if (!isRefreshTokenVerfied) return res.sendStatus(401)
 
         const payload = { admin_id: (isRefreshTokenVerfied as any).admin_id }
-        const newAccessToken = Jwt.sign(payload, process.env.JWT_ACEESS_SECRET_ADMIN as string, { expiresIn: '1m' })
+        const newAccessToken = Jwt.sign(payload, process.env.JWT_ACEESS_SECRET_ADMIN as string, { expiresIn: '5m' })
 
         res.json({ newAccessToken })
 

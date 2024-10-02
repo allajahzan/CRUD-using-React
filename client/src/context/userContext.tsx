@@ -27,7 +27,7 @@ const UserContextProvider = ({ children }: { children: ReactNode }) => {
             if (newAccesstoken) {
                 disaptchFun(SetToken(newAccesstoken))
                 Cookies.set('accessToken', newAccesstoken, { path: '/', sameSite: 'None', secure: true })
-                fetch('https://mycrud-react-server.vercel.app/getUser', {
+                fetch('http://localhost:3000/getUser', {
                     method: 'GET',
                     headers: {
                        'Authorization': `Bearer ${newAccesstoken}`

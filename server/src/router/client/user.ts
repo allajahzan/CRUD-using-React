@@ -12,7 +12,7 @@ route.post('/user', addUser)
 route.post('/userLogin',signInUser)
 
 // get user 
-route.post('/getUser', getUser)
+route.get('/getUser', getUser)
 
 // edit user
 route.patch('/editUser', editUser)

@@ -13,7 +13,6 @@ export const server = async (req: Request, res: Response) => {
 export const verifyToken = async (req: Request, res: Response): Promise<any> => {
     try {
         const token = req.headers['authorization']?.split(' ')[1] as string
-        console.log(token);
 
         if (!token) return res.sendStatus(401)
 
@@ -99,7 +98,7 @@ export const signInUser = async (req: Request, res: Response): Promise<any> => {
 export const getUser = async (req: Request, res: Response): Promise<any> => {
     try {
         const { accessToken } = req.cookies
-        console.log(req.cookies);
+        console.log(accessToken);
         
         if (!accessToken) return res.sendStatus(401)
 

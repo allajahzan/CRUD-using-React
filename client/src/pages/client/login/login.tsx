@@ -132,8 +132,8 @@ function Login() {
                     setEmailSignIn('')
                     setpasswordSignIn('')
                     const refreshToken: string = data.refreshToken
-                    Cookies.set('refreshToken', refreshToken)
-                    Cookies.set('accessToken', accessToken)
+                    Cookies.set('refreshToken', refreshToken, { path: '/', sameSite: 'None', secure: true });
+                    Cookies.set('accessToken', accessToken, { path: '/', sameSite: 'None', secure: true });
                     userContext?.setAuth(true)
                 } else {
                     setLogin(false)

@@ -99,7 +99,7 @@ export const signInUser = async (req: Request, res: Response): Promise<any> => {
 export const getUser = async (req: Request, res: Response): Promise<any> => {
     try {
         const { accessToken } = req.cookies
-        console.log(accessToken);
+        console.log(req.cookies);
         
         if (!accessToken) return res.sendStatus(401)
 

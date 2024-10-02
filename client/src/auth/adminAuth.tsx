@@ -10,22 +10,26 @@ const isTokenExpired = (token: string) => {
 
 // refresh access token
 async function refreshAccessToken() {
-    try {
-        const resp = await fetch('http://localhost:3000/admin/refreshToken', {
-            method: 'POST',
-            headers:{
-                'Authorization': `Bearer ${Cookies.get('adminRefreshToken')}`
-            } 
-        });
-        if (resp.status === 401) {
-            return null
-        } else {
-            const data = await resp.json()
-            return data.newAccessToken
+    if (Cookies.get('adminRefreshToken')) {
+        try {
+            const resp = await fetch('http://localhost:3000/admin/refreshToken', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${Cookies.get('adminRefreshToken')}`
+                }
+            });
+            if (resp.status === 401) {
+                return null
+            } else {
+                const data = await resp.json()
+                return data.newAccessToken
+            }
         }
-    }
-    catch (err) {
-        console.log(err)
+        catch (err) {
+            console.log(err)
+            return null
+        }
+    } else {
         return null
     }
 }

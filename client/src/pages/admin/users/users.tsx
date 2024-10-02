@@ -60,7 +60,12 @@ function Users() {
                         dispathFun(SetAdminToken(newAccessToken))
                         Cookies.set('adminAccessToken', newAccessToken)
 
-                        fetch('https://mycrud-react-server.vercel.app/admin/getUsers', { method: 'GET', credentials: 'include' })
+                        fetch('https://mycrud-react-server.vercel.app/admin/getUsers', { 
+                            method: 'GET', 
+                            headers:{
+                                'Authorization': `Bearer ${newAccessToken}`
+                            }
+                        })
                             .then(async (res) => {
                                 const data = await res.json()
                                 if (res.status === 401) {

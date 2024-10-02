@@ -71,6 +71,8 @@ function Login() {
 
     // signup user
 
+    const [isCreate, setCreate] = useState<boolean>(false)
+
     const handleSignUp = async (event: React.FormEvent) => {
         event.preventDefault()
 
@@ -80,6 +82,7 @@ function Login() {
             password: passwordInput
         }
 
+        setCreate(true)
         fetch('https://mycrud-react-server.vercel.app/user', {
             method: 'POST',
             headers: {
@@ -90,6 +93,7 @@ function Login() {
             .then(async (res) => {
                 const data = await res.json()
                 if (res.status === 401) {
+                    setCreate(false)
                     alert(data.msg)
                 } else {
                     alert(data.msg)
@@ -97,6 +101,7 @@ function Login() {
                     setEmail('')
                     setpassword('')
                     setMove(false)
+                    setCreate(false)
                 }
             })
             .catch((err) => {
@@ -178,7 +183,7 @@ function Login() {
                         {!isSmallScreen && <img style={styleImage} className='w-full h-60 sm:h-60 md:h-full object-cover relative z-10' src={pic} alt="" />}
 
                         {/* signup form */}
-                        <SignupForm nameInput={nameInput} setName={setName} emailInput={emailInput} setEmail={setEmail} passwordInput={passwordInput} setpassword={setpassword} handleMove={handleMove} styleFormSignUp={styleFormSignUp} handleSubmit={handleSignUp} />
+                        <SignupForm isCreate={isCreate} nameInput={nameInput} setName={setName} emailInput={emailInput} setEmail={setEmail} passwordInput={passwordInput} setpassword={setpassword} handleMove={handleMove} styleFormSignUp={styleFormSignUp} handleSubmit={handleSignUp} />
                         {isSmallScreen && <SigninForm isLogin={isLogin} emailInput={emailInputSignIn} setEmail={setEmailSignIn} passwordInput={passwordInputSignIn} setpassword={setpasswordSignIn} handleSubmit={handleSignIn} handleMove={handleMove} styleFormSignIn={styleFormSignIn} />}
                     </div>
 

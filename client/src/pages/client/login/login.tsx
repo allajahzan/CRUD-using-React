@@ -4,6 +4,8 @@ import SigninForm from '../../../components/login/signinForm'
 import SignupForm from '../../../components/login/signupForm'
 import { UserContext } from '../../../context/userContext'
 import Cookies from 'js-cookie'
+import { useDispatch } from 'react-redux'
+import { SetToken } from '../../../redux/store'
 
 function Login() {
 
@@ -106,6 +108,8 @@ function Login() {
     const [isLogin, setLogin] = useState<boolean>(false)
     const userContext = useContext(UserContext)
 
+    const disaptchFun = useDispatch()
+
     const handleSignIn = (event: React.FormEvent) => {
         event.preventDefault()
 
@@ -134,6 +138,7 @@ function Login() {
                     const refreshToken: string = data.refreshToken
                     Cookies.set('refreshToken', refreshToken)
                     Cookies.set('accessToken', accessToken)
+                    disaptchFun(SetToken(accessToken))
                     userContext?.setAuth(true)
                 } else {
                     setLogin(false)

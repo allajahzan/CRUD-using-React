@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGO_URL as string)
 // app
 const app = express()
 app.use(cors({
-    origin: 'http://localhost:3000/', 
+    origin: 'https://mycrud-react.vercel.app', 
     credentials: true,              
 }));
 app.use(express.static('public'))

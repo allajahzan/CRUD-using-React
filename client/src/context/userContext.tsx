@@ -31,7 +31,7 @@ const UserContextProvider = ({ children }: { children: ReactNode }) => {
                 fetch('http://localhost:3000/getUser', {
                     method: 'GET',
                     headers: {
-                        'Cookie': `accessToken=${Cookies.get(accessToken)}`
+                       'Authorization': `Bearer ${newAccesstoken}`
                     }
                 })
                     .then(async (res) => {

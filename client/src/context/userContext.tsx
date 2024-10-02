@@ -37,7 +37,6 @@ const UserContextProvider = ({ children }: { children: ReactNode }) => {
                     .then(async (res) => {
                         if (res.status === 401) {
                             checkAuth()
-                            alert("ayyyy")
                         } else if (res.status === 404) {
                             logout()
                         }
@@ -50,8 +49,7 @@ const UserContextProvider = ({ children }: { children: ReactNode }) => {
                         console.log(err)
                     })
             } else {
-                // logout()
-                alert("hahah")
+                logout()
             }
         }
 

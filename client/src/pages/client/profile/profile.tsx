@@ -64,7 +64,9 @@ function Profile() {
 
                         fetch('http://localhost:3000/editUser', {
                             method: 'PATCH',
-                            credentials: 'include',
+                            headers:{
+                                 'Authorization': `Bearer ${newAccesstoken}`
+                            },
                             body: formData
                         })
                             .then(async (res) => {

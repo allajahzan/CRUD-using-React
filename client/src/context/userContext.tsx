@@ -30,7 +30,8 @@ const UserContextProvider = ({ children }: { children: ReactNode }) => {
                 fetch('http://localhost:3000/getUser', { method: 'GET', credentials: 'include' })
                     .then(async (res) => {
                         if (res.status === 401) {
-                            checkAuth()
+                            // checkAuth()
+                            alert("ayyyy")
                         }else if(res.status === 404){
                             logout()
                         }

@@ -25,7 +25,6 @@ const UserContextProvider = ({ children }: { children: ReactNode }) => {
         const checkAuth = async () => {
             const newAccesstoken = await UserAuth(accessToken)
             if (newAccesstoken) {
-                alert(newAccesstoken)
                 disaptchFun(SetToken(newAccesstoken))
                 Cookies.set('accessToken', newAccesstoken, { path: '/', sameSite: 'None', secure: true })
                 fetch('http://localhost:3000/getUser', {

@@ -90,7 +90,7 @@ export const getAdmin = async (req: Request, res: Response): Promise<any> => {
 // get all users data
 export const getUsers = async (req: Request, res: Response): Promise<any> => {
     try {
-        const adminAccessToken = req.headers['authorization']?.split(' ')[1] as string
+        const {adminAccessToken} = req.cookies
         if (!adminAccessToken) return res.sendStatus(401)
 
         const isVerified = Jwt.verify(adminAccessToken, process.env.JWT_ACEESS_SECRET_ADMIN as string)

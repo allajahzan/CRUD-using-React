@@ -3,7 +3,7 @@ import { useEffect, useLayoutEffect, useState } from 'react'
 import SigninForm from '../../../components/login/signinForm'
 import SignupForm from '../../../components/login/signupForm'
 // import { UserContext } from '../../../context/userContext'
-// import Cookies from 'js-cookie'
+import Cookies from 'js-cookie'
 
 function Login() {
 
@@ -131,9 +131,9 @@ function Login() {
                 if (accessToken) {
                     setEmailSignIn('')
                     setpasswordSignIn('')
-                    // const refreshToken: string = data.refreshToken
-                    // Cookies.set('refreshToken', refreshToken)
-                    // Cookies.set('accessToken', accessToken)
+                    const refreshToken: string = data.refreshToken
+                    Cookies.set('refreshToken', refreshToken)
+                    Cookies.set('accessToken', accessToken)
                     // userContext?.setAuth(true)
                 } else {
                     setLogin(false)

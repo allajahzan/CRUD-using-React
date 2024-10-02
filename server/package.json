@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo hello",
     "dev": "nodemon src/server.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "vercel-build" : "echo hello"
   },
   "author": "allaj",
   "license": "ISC",

@@ -9,7 +9,7 @@ interface actiontype {
 // user----------------------------------------------------------------------------
 
 // user state  - reducer
-const user: Reducer< {} | null, actiontype> = (prevState = null, action) => {
+const user: Reducer<{} | null, actiontype> = (prevState = null, action) => {
     if (action.type === 'profile-update') {
         return action.payload
     } else {
@@ -18,9 +18,9 @@ const user: Reducer< {} | null, actiontype> = (prevState = null, action) => {
 }
 
 //  user token state - reducer
-const initialUserToken = Cookies.get('accessToken')? Cookies.get('accessToken') : null
+const initialUserToken = Cookies.get('accessToken') ? Cookies.get('accessToken') : null
 
-const userToken: Reducer<string|null, actiontype> = (prevState = initialUserToken, action) => {
+const userToken: Reducer<string | null, actiontype> = (prevState = initialUserToken, action) => {
     if (action.type === 'set-token') {
         return action.payload
     }
@@ -32,21 +32,21 @@ const userToken: Reducer<string|null, actiontype> = (prevState = initialUserToke
 // admin-----------------------------------------------------------------------------------
 
 // admin state - reducer
-const admin: Reducer<{} | null, actiontype> = (prevState = null , action) =>{
-    if(action.type === 'update-admin'){
+const admin: Reducer<{} | null, actiontype> = (prevState = null, action) => {
+    if (action.type === 'update-admin') {
         return action.payload
-    }else{
+    } else {
         return prevState
     }
 }
 
 // admin token - reducer
-const initialAdminToken = Cookies.get('adminAccessToken')? Cookies.get('adminAccessToken') : null
+const initialAdminToken = Cookies.get('adminAccessToken') ? Cookies.get('adminAccessToken') : null
 
-const adminToken: Reducer<string|null, actiontype> = (prevState = initialAdminToken, action) =>{
-    if(action.type==='set-token-admin'){
+const adminToken: Reducer<string | null, actiontype> = (prevState = initialAdminToken, action) => {
+    if (action.type === 'set-token-admin') {
         return action.payload
-    }else{
+    } else {
         return prevState
     }
 }
@@ -64,7 +64,7 @@ const appReducer = combineReducers<any>({
 // actions-----------------users-------------------
 
 // action to set token
-export function SetToken(token: string|null) {
+export function SetToken(token: string | null) {
     return {
         type: 'set-token',
         payload: token
@@ -72,7 +72,7 @@ export function SetToken(token: string|null) {
 }
 
 // action to update user
-export function UpdateUser(user: object|null) {
+export function UpdateUser(user: object | null) {
     return {
         type: 'profile-update',
         payload: user
@@ -82,18 +82,18 @@ export function UpdateUser(user: object|null) {
 // actions------------------admin--------------------
 
 // action to set admin token
-export function SetAdminToken(token:string|null){
+export function SetAdminToken(token: string | null) {
     return {
-        type:'set-token-admin',
-        payload:token
+        type: 'set-token-admin',
+        payload: token
     }
 }
 
 // action to update admin
-export function UpdateAdmin(token:object|null){
+export function UpdateAdmin(token: object | null) {
     return {
-        type:'update-admin',
-        payload:token
+        type: 'update-admin',
+        payload: token
     }
 }
 

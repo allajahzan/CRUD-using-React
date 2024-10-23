@@ -36,6 +36,10 @@ export const verifyToken = async (req: Request, res: Response): Promise<any> => 
         const isVerified = Jwt.verify(token, process.env.JWT_ACEESS_SECRET_ADMIN as string)
         if (!isVerified) return res.sendStatus(401)
 
+        const adminId = (isVerified as Jwt.JwtPayload).admin_id as string;
+        const isAdmin = await User.findById(adminId) 
+        if(!isAdmin) return res.sendStatus(401)
+
         res.sendStatus(200)
 
     } catch (err) {
